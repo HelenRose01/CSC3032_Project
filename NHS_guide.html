@@ -1128,6 +1128,33 @@
 		font-size: 50px;
 		color: rgba(0,0,0,1);
 	}
+	button {
+		background: none;
+		border: none;
+		cursor: pointer;
+		height: 48px;
+		outline: none;
+		padding: 0;
+		width: 48px;
+	}
+	#play {
+		background-image: url(/Images/play.svg);
+	}
+	#play.played {
+		background-image: url(/Images/play1.svg);
+	}
+	#pause {
+		background-image: url(/Images/pause.svg);
+	}
+	#pause.paused {
+		background-image: url(/Images/pause1.svg);
+	}
+	#stop {
+		background-image: url(/Images/stop.svg);
+	}
+	#stop.stopped {
+		background-image: url(/Images/stop1.svg);
+	}
 </style>
 <script id="applicationScript">
 ///////////////////////////////////////
@@ -4037,6 +4064,70 @@ var Application = function() {
 	window.document.addEventListener("DOMContentLoaded", self.onloadHandler);
 }
 
+onload = function() {
+	if ('speechSynthesis' in window) with(speechSynthesis)  {
+		var flag = false;
+
+		/* references to the buttons */
+		var playEle = document.querySelector('#play');
+		var pauseEle = document.querySelector('#pause');
+		var stopEle = document.querySelector('#stop');
+
+		/* click event handlers for the buttons */
+		playEle.addEventListener('click', onClickPlay);
+		pauseEle.addEventListener('click', onClickPause);
+		stopEle.addEventListener('click', onClickStop);
+
+		function onClickPlay() {
+			if(!flag){
+				flag = true;
+				utterance = new SpeechSynthesisUtterance(document.querySelector('body').textContent);
+				utterance.voice = getVoices()[0];
+				utterance.onend = function(){
+					flag = false; playEle.className = pauseEle.className = ''; stopEle.className = 'stopped';
+				};
+				playEle.className = 'played';
+				stopEle.className = '';
+				window.speechSynthesis.cancel();
+				speak(utterance);
+			}
+			if (paused) { /* unpause/resume narration */
+				playEle.className = 'played';
+				pauseEle.className = '';
+				resume();
+			}
+		}
+
+		function onClickPause() {
+			if(speaking && !paused){ /* pause narration */
+				pauseEle.className = 'paused';
+				playEle.className = '';
+				pause();
+			}
+		}
+
+		function onClickStop() {
+			if(speaking){ /* stop narration */
+				/* for safari */
+				stopEle.className = 'stopped';
+				playEle.className = pauseEle.className = '';
+				flag = false;
+				cancel();
+
+			}
+		}
+	}
+	else {
+		msg = document.createElement('h5');
+		msg.textContent = "Detected no support for Speech Synthesis";
+		msg.style.textAlign = 'center';
+		msg.style.backgroundColor = 'red';
+		msg.style.color = 'white';
+		msg.style.marginTop = msg.style.marginBottom = 0;
+		document.body.insertBefore(msg, document.querySelector('div'));
+	}
+}
+
 window.application = new Application();
 </script>
 </head>
@@ -4262,10 +4353,12 @@ window.application = new Application();
 			<div id="Listen_to_guide">
 				<span>Listen to guide</span>
 			</div>
+			<button>
 			<svg class="Icon_awesome-volume-up" viewBox="0 1.125 40.5 33.752">
 				<path id="Icon_awesome-volume-up" d="M 15.11929702758789 4.995703220367432 L 8.863594055175781 11.25 L 1.6875 11.25 C 0.7551562786102295 11.25 0 12.00515651702881 0 12.9375 L 0 23.0625 C 0 23.994140625 0.7551562786102295 24.75 1.6875 24.75 L 8.863594055175781 24.75 L 15.11929702758789 31.00429725646973 C 16.17609405517578 32.06109237670898 18 31.31859397888184 18 29.81109428405762 L 18 6.188906192779541 C 18 4.679999828338623 16.1746883392334 3.940312385559082 15.11929702758789 4.995703220367432 Z M 31.52460861206055 1.404140710830688 C 30.73921775817871 0.8887500762939453 29.6838264465332 1.106015682220459 29.16843605041504 1.892812609672546 C 28.65234184265137 2.678203105926514 28.87171745300293 3.733593940734863 29.65710830688477 4.248984336853027 C 34.31671905517578 7.306875228881836 37.09757614135742 12.44742202758789 37.09757614135742 18.00070190429688 C 37.09757614135742 23.55398368835449 34.31671524047852 28.69453048706055 29.65710830688477 31.75242042541504 C 28.87171745300293 32.26710891723633 28.65234184265137 33.32320022583008 29.16843605041504 34.10788726806641 C 29.66343688964844 34.86093521118164 30.71038818359375 35.13163757324219 31.52460861206055 34.5965576171875 C 37.14398574829102 30.90796852111816 40.5 24.70289039611816 40.5 18 C 40.5 11.29710960388184 37.14398574829102 5.092734336853027 31.52460861206055 1.404140591621399 Z M 33.75 18 C 33.75 13.53304672241211 31.49578094482422 9.426094055175781 27.71929740905762 7.014374732971191 C 26.9325008392334 6.512343406677246 25.88906288146973 6.745780944824219 25.39054679870605 7.538906097412109 C 24.89203071594238 8.33203125 25.12476539611816 9.381796836853027 25.91156196594238 9.884531021118164 C 28.70648384094238 11.66976547241211 30.375 14.70304679870605 30.375 18 C 30.375 21.29695320129395 28.70648384094238 24.33023452758789 25.91156196594238 26.11546897888184 C 25.12476539611816 26.61750030517578 24.89203071594238 27.66726684570312 25.39054679870605 28.46109390258789 C 25.84828186035156 29.18953132629395 26.87554740905762 29.52562522888184 27.71929740905762 28.98562431335449 C 31.49578094482422 26.57390594482422 33.75 22.4676570892334 33.75 18 Z M 23.78179550170898 12.59507751464844 C 22.96757698059082 12.14999961853027 21.94031143188477 12.44320297241211 21.48890495300293 13.25953102111816 C 21.03960800170898 14.07585906982422 21.3370304107666 15.10171890258789 22.15335845947266 15.55242156982422 C 23.06109428405762 16.05093765258789 23.625 16.98960876464844 23.625 18 C 23.625 19.01109313964844 23.06109428405762 19.94906234741211 22.15406227111816 20.44757843017578 C 21.33773422241211 20.89828109741211 21.04031181335449 21.92414093017578 21.48960876464844 22.74046897888184 C 21.94171905517578 23.56031227111816 22.96968650817871 23.85140609741211 23.78249931335449 23.40492248535156 C 25.76742172241211 22.31156349182129 27.00070190429688 20.24085998535156 27.00070190429688 17.99929809570312 C 27.00070190429688 15.75773620605469 25.76741981506348 13.68773555755615 23.78179550170898 12.59507942199707 Z">
 				</path>
 			</svg>
+			</button>
 			<div id="Print_guide">
 				<span>Print guide</span>
 			</div>
@@ -4289,6 +4382,11 @@ window.application = new Application();
 		
 	<div id="If_it_is_a_telephone_appointme">
 		<span>If it is a telephone appointment that you chose, you will have to choose the phone number that they should ring by <br/>pressing the circle next to the number. Once you have done that, or if you did not select a telephone appointment, <br/>then check the details of the appointment then scroll down until you find a green button which says 'confirm and <br/>book appointment'. Your appointment will then be booked.</span>
+	</div>
+	<div>
+		<button id=play></button> &nbsp;
+		<button id=pause></button> &nbsp;
+		<button id=stop></button>
 	</div>
 </div>
 </body>
