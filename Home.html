@@ -472,6 +472,45 @@
 		font-size: 40px;
 		color: rgba(0,0,0,1);
 	}
+	#search {
+		position: absolute;
+		top:470px;
+		width: 100%;
+		font-size: 40px;
+		padding: 12px 20px 12px 40px;
+		border: 1px solid #ddd;
+		margin-bottom: 12px;
+		font-family: Roboto;
+	}
+	#myUL {
+		position: absolute;
+		top:550px;
+		width: 100%;
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+		display:block;
+	}
+
+	#myUL li a {
+		border: 1px solid #ddd;
+		margin-top: -1px; /* Prevent double borders */
+		background-color: #f6f6f6;
+		padding: 12px;
+		text-decoration: none;
+		font-family: Roboto;
+		font-size: 40px;
+		color: black;
+		display:block;
+	}
+
+	#myUL li{
+		display:none;
+	}
+
+	#myUL li a:hover:not(.header) {
+		background-color: #eee;
+	}
 </style>
 <script id="applicationScript">
 ///////////////////////////////////////
@@ -3380,6 +3419,22 @@ var Application = function() {
 	window.addEventListener("load", self.onloadHandler);
 	window.document.addEventListener("DOMContentLoaded", self.onloadHandler);
 }
+function searchGuide() {
+	var input, filter, ul, li, a, i, txtValue;
+	input = document.getElementById("search");
+	filter = input.value.toUpperCase();
+	ul = document.getElementById("myUL");
+	li = ul.getElementsByTagName("li");
+	for (i = 0; i < li.length; i++) {
+		a = li[i].getElementsByTagName("a")[0];
+		txtValue = a.textContent || a.innerText;
+		if (filter!== "" && a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+			li[i].style.display = "block";
+		} else {
+			li[i].style.display = "none";
+		}
+	}
+}
 
 window.application = new Application();
 </script>
@@ -3389,6 +3444,15 @@ window.application = new Application();
 	<div id="Home_">
 		<span>Home</span>
 	</div>
+	<input type="text" id="search" onkeyup="searchGuide()" placeholder="Search for guides..." title="Search">
+	<ul id="myUL">
+		<li><a href="Banking_Welcome_Page.html">Banking</a></li>
+
+		<li><a href="NHS_welcome_page.html">NHS App</a></li>
+
+		<li><a href="Zoom_welcome_page.html">Zoom</a></li>
+	</ul>
+
 	<div onclick="application.goToTargetView(event)" id="Group_1">
 		<svg class="Rectangle_1">
 			<rect id="Rectangle_1" rx="0" ry="0" x="0" y="0" width="346" height="231">
@@ -3421,17 +3485,6 @@ window.application = new Application();
 	<div id="Welcome_to_the_app_which_will_">
 		<span>Welcome to the app which will help you to learn new IT skills! Below are the courses we have on offer (you can also <br/>use the search bar to search for something specific). Just click on the guide you want to complete and the<br/>app will take you to the guide.</span>
 	</div>
-	<svg class="Path_1" viewBox="0 0 586 83">
-		<path id="Path_1" d="M 0 0 L 196.3694000244141 0 L 586 0 L 586 83 L 190.296875 83 L 0 83 L 0 0 Z">
-		</path>
-	</svg>
-	<div id="Search">
-		<span>Search</span>
-	</div>
-	<svg class="Icon_awesome-search" viewBox="0 0 53.587 47.404">
-		<path id="Icon_awesome-search" d="M 52.85838317871094 40.9835205078125 L 42.42277908325195 31.75366592407227 C 41.95176315307617 31.33707237243652 41.31327438354492 31.10563087463379 40.64338684082031 31.10563087463379 L 38.9372673034668 31.10563087463379 C 41.82615661621094 27.83768844604492 43.54274749755859 23.7273006439209 43.54274749755859 19.25586700439453 C 43.54274749755859 8.618852615356445 33.79796600341797 0 21.7713737487793 0 C 9.744781494140625 0 0 8.618852615356445 0 19.25586700439453 C 0 29.89288330078125 9.744783401489258 38.51173400878906 21.7713737487793 38.51173400878906 C 26.82693672180176 38.51173400878906 31.47428894042969 36.99348068237305 35.16914367675781 34.43838119506836 L 35.16914367675781 35.94737243652344 C 35.16914367675781 36.53985977172852 35.43081665039062 37.10457229614258 35.90183258056641 37.52116775512695 L 46.33744049072266 46.75102615356445 C 47.32133865356445 47.62124252319336 48.91232299804688 47.62124252319336 49.88574981689453 46.75102615356445 L 52.84791946411133 44.13111114501953 C 53.83181381225586 43.26089477539062 53.83181381225586 41.85373687744141 52.85838317871094 40.98351669311523 Z M 21.7713737487793 31.10563087463379 C 14.37119960784912 31.10563087463379 8.373604774475098 25.81026840209961 8.373604774475098 19.25586700439453 C 8.373604774475098 12.71072292327881 14.36073303222656 7.406102657318115 21.7713737487793 7.406102657318115 C 29.17154693603516 7.406102657318115 35.16914367675781 12.70146656036377 35.16914367675781 19.25586700439453 C 35.16914367675781 25.80101013183594 29.18201446533203 31.10563087463379 21.7713737487793 31.10563087463379 Z">
-		</path>
-	</svg>
 	<img id="Image_3" src="/Images/Image_3.png">
 		
 	<img id="Image_4" src="/Images/Image_4.png">
