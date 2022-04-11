@@ -997,6 +997,42 @@
 		top: 7.863px;
 		transform: matrix(1,0,0,1,0,0);
 	}
+	#play {
+		background-image: url(/Images/play.svg);
+		position:absolute;
+		margin-top: 165px;
+		margin-left: 400px;
+		width: 40.129px;
+		height: 40.778px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	#play.played {
+		background-image: url(/Images/play1.svg);
+		position:absolute;
+		margin-top: 165px;
+		margin-left: 400px;
+		width: 40.129px;
+		height: 40.778px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	#pause {
+		background-image: url(/Images/pause.svg);
+		position:absolute;
+		margin-top: 165px;
+		margin-left: 450px;
+		width: 40.129px;
+		height: 40.778px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	#pause.paused {
+		background-image: url(/Images/pause1.svg);
+		position:absolute;
+		margin-top: 165px;
+		margin-left: 450px;
+		width: 40.129px;
+		height: 40.778px;
+		transform: matrix(1,0,0,1,0,0);
+	}
 </style>
 <script id="applicationScript">
 ///////////////////////////////////////
@@ -3906,6 +3942,69 @@ var Application = function() {
 	window.document.addEventListener("DOMContentLoaded", self.onloadHandler);
 }
 
+onload = function() {
+	if ('speechSynthesis' in window) with(speechSynthesis)  {
+		var flag = false;
+
+		/* references to the buttons */
+		var playEle = document.querySelector('#play');
+		var pauseEle = document.querySelector('#pause');
+		var stopEle = document.querySelector('#stop');
+
+		/* click event handlers for the buttons */
+		playEle.addEventListener('click', onClickPlay);
+		pauseEle.addEventListener('click', onClickPause);
+		stopEle.addEventListener('click', onClickStop);
+
+		function onClickPlay() {
+			if(!flag){
+				flag = true;
+				utterance = new SpeechSynthesisUtterance(document.querySelector('body').textContent);
+				utterance.voice = getVoices()[0];
+				utterance.onend = function(){
+					flag = false; playEle.className = pauseEle.className = ''; stopEle.className = 'stopped';
+				};
+				playEle.className = 'played';
+				stopEle.className = '';
+				window.speechSynthesis.cancel();
+				speak(utterance);
+			}
+			if (paused) { /* unpause/resume narration */
+				playEle.className = 'played';
+				pauseEle.className = '';
+				resume();
+			}
+		}
+
+		function onClickPause() {
+			if(speaking && !paused){ /* pause narration */
+				pauseEle.className = 'paused';
+				playEle.className = '';
+				pause();
+			}
+		}
+
+		function onClickStop() {
+			if(speaking){ /* stop narration */
+				/* for safari */
+				stopEle.className = 'stopped';
+				playEle.className = pauseEle.className = '';
+				flag = false;
+				cancel();
+
+			}
+		}
+	}
+	else {
+		msg = document.createElement('h5');
+		msg.textContent = "Detected no support for Speech Synthesis";
+		msg.style.textAlign = 'center';
+		msg.style.backgroundColor = 'red';
+		msg.style.color = 'white';
+		msg.style.marginTop = msg.style.marginBottom = 0;
+		document.body.insertBefore(msg, document.querySelector('div'));
+	}
+}
 window.application = new Application();
 </script>
 </head>
@@ -4112,7 +4211,7 @@ window.application = new Application();
 				</path>
 			</svg>
 			<svg class="Rectangle_4">
-				<rect id="Rectangle_4" rx="0" ry="0" x="0" y="0" width="318" height="84">
+				<rect id="Rectangle_4" rx="0" ry="0" x="0" y="0" width="500" height="84">
 				</rect>
 			</svg>
 			<div id="Listen_to_guide">
@@ -4130,6 +4229,11 @@ window.application = new Application();
 			<path id="Icon_awesome-print" d="M 38.61279296875 19.41670989990234 L 38.61279296875 7.812191963195801 C 38.61279296875 6.953608989715576 38.32233428955078 6.131433010101318 37.80519866943359 5.5236496925354 L 33.90427398681641 0.9475759863853455 C 33.38713836669922 0.3408037424087524 32.6855583190918 0 31.95381164550781 0 L 8.274169921875 0 C 6.751204967498779 0 5.51611328125 1.449174284934998 5.51611328125 3.236118316650391 L 5.51611328125 19.41670989990234 C 2.469322443008423 19.41670989990234 0 22.31404876708984 0 25.88894653320312 L 0 37.21536254882812 C 0 38.10934066772461 0.6171151995658875 38.83341979980469 1.3790283203125 38.83341979980469 L 5.51611328125 38.83341979980469 L 5.51611328125 48.54177474975586 C 5.51611328125 50.32871627807617 6.751204967498779 51.77789306640625 8.274169921875 51.77789306640625 L 35.854736328125 51.77789306640625 C 37.37770080566406 51.77789306640625 38.61279296875 50.32871627807617 38.61279296875 48.54177474975586 L 38.61279296875 38.83341979980469 L 42.7498779296875 38.83341979980469 C 43.51179122924805 38.83341979980469 44.12890625 38.10934066772461 44.12890625 37.21536254882812 L 44.12890625 25.88894653320312 C 44.12890625 22.31404876708984 41.65958404541016 19.41670989990234 38.61279296875 19.41670989990234 Z M 33.0966796875 45.30565643310547 L 11.0322265625 45.30565643310547 L 11.0322265625 35.5973014831543 L 33.0966796875 35.5973014831543 L 33.0966796875 45.30565643310547 Z M 33.0966796875 22.65282821655273 L 11.0322265625 22.65282821655273 L 11.0322265625 6.472236633300781 L 27.58056640625 6.472236633300781 L 27.58056640625 11.32641410827637 C 27.58056640625 12.22039222717285 28.19768142700195 12.94447326660156 28.9595947265625 12.94447326660156 L 33.0966796875 12.94447326660156 L 33.0966796875 22.65282821655273 Z M 37.2337646484375 29.93409538269043 C 36.09175872802734 29.93409538269043 35.16522216796875 28.84696006774902 35.16522216796875 27.50700759887695 C 35.16522216796875 26.16603851318359 36.09175872802734 25.07991790771484 37.2337646484375 25.07991790771484 C 38.37577438354492 25.07991790771484 39.30230712890625 26.16603851318359 39.30230712890625 27.50700759887695 C 39.30230712890625 28.84696006774902 38.37577438354492 29.93409538269043 37.2337646484375 29.93409538269043 Z">
 			</path>
 		</svg>
+	</div>
+	<div>
+		<button id=play></button> &nbsp;
+		<button id=pause></button> &nbsp;
+		<button id=stop></button>
 	</div>
 </div>
 </body>
