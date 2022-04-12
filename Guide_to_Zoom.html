@@ -61,7 +61,7 @@
 	}
 	#How_to_use_Zoom_laptopPC {
 		left: 668px;
-		top: 43px;
+		top: 70px;
 		position: absolute;
 		overflow: visible;
 		width: 835px;
@@ -902,7 +902,7 @@
 		width: 329.261px;
 		height: 191px;
 		left: 13.869px;
-		top: 35px;
+		top: 60px;
 		overflow: visible;
 	}
 	#Component_5__3 {
@@ -1003,7 +1003,7 @@
 	#play {
 		background-image: url(/Images/play.svg);
 		position:absolute;
-		margin-top: 165px;
+		margin-top: 185px;
 		margin-left: 400px;
 		width: 40.129px;
 		height: 40.778px;
@@ -1012,7 +1012,7 @@
 	#play.played {
 		background-image: url(/Images/play1.svg);
 		position:absolute;
-		margin-top: 165px;
+		margin-top: 185px;
 		margin-left: 400px;
 		width: 40.129px;
 		height: 40.778px;
@@ -1021,7 +1021,7 @@
 	#pause {
 		background-image: url(/Images/pause.svg);
 		position:absolute;
-		margin-top: 165px;
+		margin-top: 185px;
 		margin-left: 450px;
 		width: 40.129px;
 		height: 40.778px;
@@ -1030,11 +1030,33 @@
 	#pause.paused {
 		background-image: url(/Images/pause1.svg);
 		position:absolute;
-		margin-top: 165px;
+		margin-top: 185px;
 		margin-left: 450px;
 		width: 40.129px;
 		height: 40.778px;
 		transform: matrix(1,0,0,1,0,0);
+	}
+	.progress-container {
+		width: 100%;
+		height: 8px;
+		background: #ccc;
+	}
+
+	.progress-bar {
+		height: 8px;
+		background: #04AA6D;
+		width: 0%;
+	}
+	.header {
+		position: fixed;
+		top: 0;
+		z-index: 1;
+		width: 100%;
+		background-color: #f1f1f1;
+		font-family: Roboto;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 20px;
 	}
 </style>
 <script id="applicationScript">
@@ -4008,10 +4030,24 @@ onload = function() {
 		document.body.insertBefore(msg, document.querySelector('div'));
 	}
 }
+window.onscroll = function() {scrollBar()};
+
+function scrollBar() {
+	var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+	var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+	var scrolled = (winScroll / height) * 100;
+	document.getElementById("myBar").style.width = scrolled + "%";
+}
 window.application = new Application();
 </script>
 </head>
 <body>
+<div class="header">
+	<h2>Progress</h2>
+	<div class="progress-container">
+		<div class="progress-bar" id="myBar"></div>
+	</div>
+</div>
 <div id="Guide_to_Zoom">
 	<div id="To_start_go_to_either_Edge____">
 		<span>To start, go to either Edge (____) or Chrome ( ___ ). You should see one of these symbols at the bottom of your <br/>screen or you can press on the windows key on your keyboard ( ___ ) and type either Edge or Chrome. <br/>You should then get a screen similar to this:</span><br/>

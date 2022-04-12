@@ -1534,6 +1534,28 @@
 		font-size: 30px;
 		color: rgba(0,0,0,1);
 	}
+	.progress-container {
+		width: 100%;
+		height: 8px;
+		background: #ccc;
+	}
+
+	.progress-bar {
+		height: 8px;
+		background: #04AA6D;
+		width: 16.7%;
+	}
+	.header {
+		position: fixed;
+		top: 0;
+		z-index: 1;
+		width: 100%;
+		background-color: #f1f1f1;
+		font-family: Roboto;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 20px;
+	}
 </style>
 <script id="applicationScript">
 ///////////////////////////////////////
@@ -4447,6 +4469,12 @@ window.application = new Application();
 </script>
 </head>
 <body>
+<div class="header">
+	<h2>Progress</h2>
+	<div class="progress-container">
+		<div class="progress-bar" id="myBar"></div>
+	</div>
+</div>
 <div id="Web_1920__1">
 	<div id="n_As_you_can_see_above_a_state">
 		<span><br/>As you can see above, a statement will be displayed to you, this will show you the recent incomings and outgoings of<br/>your account. You will also have the option to do things such as payments, see recent statements, look at direct debits,<br/>set up a standing order and transfer money to another account,</span>

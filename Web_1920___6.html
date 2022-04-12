@@ -1438,6 +1438,28 @@
 		font-size: 30px;
 		color: rgba(0,0,0,1);
 	}
+	.progress-container {
+		width: 100%;
+		height: 8px;
+		background: #ccc;
+	}
+
+	.progress-bar {
+		height: 8px;
+		background: #04AA6D;
+		width: 100%;
+	}
+	.header {
+		position: fixed;
+		top: 0;
+		z-index: 1;
+		width: 100%;
+		background-color: #f1f1f1;
+		font-family: Roboto;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 20px;
+	}
 </style>
 <script id="applicationScript">
 ///////////////////////////////////////
@@ -4351,6 +4373,12 @@ window.application = new Application();
 </script>
 </head>
 <body>
+<div class="header">
+	<h2>Progress</h2>
+	<div class="progress-container">
+		<div class="progress-bar" id="myBar"></div>
+	</div>
+</div>
 <div id="Web_1920__6">
 	<div id="Transfer_money_1_Press_standin">
 		<span>Transfer money</span><br/><span style="font-style:normal;font-weight:normal;">1) Press standing order<br/>2) Select account and amount</span><span></span><br/><span style="font-style:normal;font-weight:normal;">3) Click confirm</span><span></span><br/>
