@@ -4029,9 +4029,6 @@ onload = function() {
 		msg.style.marginTop = msg.style.marginBottom = 0;
 		document.body.insertBefore(msg, document.querySelector('div'));
 	}
-}
-window.onscroll = function() {scrollBar()};
-Sfunction start() {
 	let scrolled = parseInt(document.cookie[9]+document.cookie[10]);
 	if (scrolled == "") {
 		scrolled = 0;
@@ -4044,6 +4041,7 @@ Sfunction start() {
 		window.scrollTo(0, y);
 	}
 }
+window.onscroll = function() {scrollBar()};
 
 function scrollBar() {
 	var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
@@ -4055,7 +4053,7 @@ function scrollBar() {
 window.application = new Application();
 </script>
 </head>
-<body onload="start()">
+<body>
 <div class="header">
 	<h2>Progress</h2>
 	<div class="progress-container">
