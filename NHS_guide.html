@@ -4148,19 +4148,36 @@ onload = function() {
 		msg.style.marginTop = msg.style.marginBottom = 0;
 		document.body.insertBefore(msg, document.querySelector('div'));
 	}
+
 }
+function start() {
+	let scrolled = parseInt(document.cookie[9]+document.cookie[10]);
+	if (scrolled == "") {
+		scrolled = 0;
+		document.getElementById("myBar").style.width = scrolled + "%";
+		document.cookie = "progress = " + scrolled + "; expires = Tues 31 Dec 2030 12:00:00 UTC";
+	} else {
+		document.getElementById("myBar").style.width = scrolled + "%";
+		var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+		var y = (scrolled/100)*height;
+		window.scrollTo(0, y);
+	}
+}
+
+
 window.onscroll = function() {scrollBar()};
 
 function scrollBar() {
 	var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
 	var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
 	var scrolled = (winScroll / height) * 100;
+	document.cookie = "progress = " + scrolled+ "; expires = Tues 31 Dec 2030 12:00:00 UTC";
 	document.getElementById("myBar").style.width = scrolled + "%";
 }
 window.application = new Application();
 </script>
 </head>
-<body>
+<body onload="start()">
 <div class="header">
 	<h2>Progress</h2>
 	<div class="progress-container">
