@@ -1136,24 +1136,36 @@
 		position:absolute;
 		margin-top: 185px;
 		margin-left: 400px;
+		width: 40.129px;
+		height: 40.778px;
+		transform: matrix(1,0,0,1,0,0);
 	}
 	#play.played {
 		background-image: url(/Images/play1.svg);
 		position:absolute;
 		margin-top: 185px;
 		margin-left: 400px;
+		width: 40.129px;
+		height: 40.778px;
+		transform: matrix(1,0,0,1,0,0);
 	}
 	#pause {
 		background-image: url(/Images/pause.svg);
 		position:absolute;
 		margin-top: 185px;
 		margin-left: 450px;
+		width: 40.129px;
+		height: 40.778px;
+		transform: matrix(1,0,0,1,0,0);
 	}
 	#pause.paused {
 		background-image: url(/Images/pause1.svg);
 		position:absolute;
 		margin-top: 185px;
 		margin-left: 450px;
+		width: 40.129px;
+		height: 40.778px;
+		transform: matrix(1,0,0,1,0,0);
 	}
 	.progress-container {
 		width: 100%;
@@ -4149,8 +4161,6 @@ onload = function() {
 		document.body.insertBefore(msg, document.querySelector('div'));
 	}
 
-}
-function start() {
 	let scrolled = parseInt(document.cookie[9]+document.cookie[10]);
 	if (scrolled == "") {
 		scrolled = 0;
@@ -4177,7 +4187,7 @@ function scrollBar() {
 window.application = new Application();
 </script>
 </head>
-<body onload="start()">
+<body>
 <div class="header">
 	<h2>Progress</h2>
 	<div class="progress-container">
