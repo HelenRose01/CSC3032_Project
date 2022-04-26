@@ -135,6 +135,20 @@
 		font-size: 20px;
 		color: rgba(0,0,0,1);
 	}
+	#form {
+		left: 237px;
+		top: 181px;
+		 position: absolute;
+		 overflow: visible;
+		 white-space: nowrap;
+		 text-align: left;
+		 font-family: Roboto;
+		 font-style: normal;
+		 font-weight: normal;
+		 font-size: 20px;
+		 color: rgba(0, 0, 0, 1);
+	 }
+
 	#Amount {
 		left: 237px;
 		top: 181px;
@@ -3209,16 +3223,6 @@ window.application = new Application();
 	<div id="Make_a_transfer">
 		<span>Make a transfer</span>
 	</div>
-	<div id="Amount">
-		<span>Amount:</span>
-	</div>
-	<svg class="Rectangle_31">
-		<rect id="Rectangle_31" rx="0" ry="0" x="0" y="0" width="324" height="39">
-		</rect>
-	</svg>
-	<div id="Text">
-		<span>£</span>
-	</div>
 	<svg class="Ellipse_2">
 		<ellipse id="Ellipse_2" rx="116" ry="32" cx="116" cy="32">
 		</ellipse>
@@ -3226,6 +3230,10 @@ window.application = new Application();
 	<div id="Confirm">
 		<span>Confirm</span>
 	</div>
+		<div id = "form">
+			<label for="fname">Amount:</label>
+			<input type="text" id="fname" name="fname">
+		</div>
 	</div>
 	<div onclick="application.goToTargetView(event)" id="Component_4__15" class="Component_4___15">
 		<svg class="Icon_awesome-home" viewBox="-0.001 2.254 40.503 31.496">

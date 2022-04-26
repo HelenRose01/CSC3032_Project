@@ -131,19 +131,18 @@
 		font-size: 20px;
 		color: rgba(0,0,0,1);
 	}
-	#Name_of_payee_full_name__Accou {
+	#form {
 		left: 242px;
 		top: 201px;
 		position: absolute;
 		overflow: visible;
-		width: 242px;
 		white-space: nowrap;
 		text-align: left;
 		font-family: Roboto;
 		font-style: normal;
 		font-weight: normal;
 		font-size: 20px;
-		color: rgba(0,0,0,1);
+		color: rgba(0, 0, 0, 1);
 	}
 	#Ellipse_1 {
 		fill: rgba(255,255,255,1);
@@ -179,108 +178,6 @@
 		font-weight: bold;
 		font-size: 20px;
 		color: rgba(0,0,0,1);
-	}
-	#Rectangle_22 {
-		fill: rgba(255,255,255,1);
-		stroke: rgba(112,112,112,1);
-		stroke-width: 1px;
-		stroke-linejoin: miter;
-		stroke-linecap: butt;
-		stroke-miterlimit: 4;
-		shape-rendering: auto;
-	}
-	.Rectangle_22 {
-		position: absolute;
-		overflow: visible;
-		width: 379px;
-		height: 37px;
-		left: 483px;
-		top: 192px;
-	}
-	#Rectangle_23 {
-		fill: rgba(255,255,255,1);
-		stroke: rgba(112,112,112,1);
-		stroke-width: 1px;
-		stroke-linejoin: miter;
-		stroke-linecap: butt;
-		stroke-miterlimit: 4;
-		shape-rendering: auto;
-	}
-	.Rectangle_23 {
-		position: absolute;
-		overflow: visible;
-		width: 379px;
-		height: 37px;
-		left: 411px;
-		top: 247px;
-	}
-	#Rectangle_24 {
-		fill: rgba(255,255,255,1);
-		stroke: rgba(112,112,112,1);
-		stroke-width: 1px;
-		stroke-linejoin: miter;
-		stroke-linecap: butt;
-		stroke-miterlimit: 4;
-		shape-rendering: auto;
-	}
-	.Rectangle_24 {
-		position: absolute;
-		overflow: visible;
-		width: 379px;
-		height: 37px;
-		left: 346px;
-		top: 301px;
-	}
-	#Rectangle_25 {
-		fill: rgba(255,255,255,1);
-		stroke: rgba(112,112,112,1);
-		stroke-width: 1px;
-		stroke-linejoin: miter;
-		stroke-linecap: butt;
-		stroke-miterlimit: 4;
-		shape-rendering: auto;
-	}
-	.Rectangle_25 {
-		position: absolute;
-		overflow: visible;
-		width: 379px;
-		height: 37px;
-		left: 331px;
-		top: 355px;
-	}
-	#Rectangle_29 {
-		fill: rgba(255,255,255,1);
-		stroke: rgba(112,112,112,1);
-		stroke-width: 1px;
-		stroke-linejoin: miter;
-		stroke-linecap: butt;
-		stroke-miterlimit: 4;
-		shape-rendering: auto;
-	}
-	.Rectangle_29 {
-		position: absolute;
-		overflow: visible;
-		width: 379px;
-		height: 37px;
-		left: 348px;
-		top: 409px;
-	}
-	#Rectangle_30 {
-		fill: rgba(255,255,255,1);
-		stroke: rgba(112,112,112,1);
-		stroke-width: 1px;
-		stroke-linejoin: miter;
-		stroke-linecap: butt;
-		stroke-miterlimit: 4;
-		shape-rendering: auto;
-	}
-	.Rectangle_30 {
-		position: absolute;
-		overflow: visible;
-		width: 379px;
-		height: 37px;
-		left: 356px;
-		top: 457px;
 	}
 	#Component_6__7 {
 		position: absolute;
@@ -3323,9 +3220,6 @@ window.application = new Application();
 	<div id="Make_a_standing_order">
 		<span>Make a standing order</span>
 	</div>
-	<div id="Name_of_payee_full_name__Accou">
-		<span>Name of payee (full name):<br/><br/>Account Number:<br/><br/>Sort Code:<br/><br/>Amount:<br/><br/>Frequency:<br/><br/>Date start: </span>
-	</div>
 	<svg class="Ellipse_1">
 		<ellipse onclick="application.goToTargetView(event)" id="Ellipse_1" rx="103.5" ry="25.5" cx="103.5" cy="25.5">
 		</ellipse>
@@ -3333,30 +3227,30 @@ window.application = new Application();
 	<div id="Confirm">
 		<span>Confirm</span>
 	</div>
-	<svg class="Rectangle_22">
-		<rect id="Rectangle_22" rx="0" ry="0" x="0" y="0" width="379" height="37">
-		</rect>
-	</svg>
-	<svg class="Rectangle_23">
-		<rect id="Rectangle_23" rx="0" ry="0" x="0" y="0" width="379" height="37">
-		</rect>
-	</svg>
-	<svg class="Rectangle_24">
-		<rect id="Rectangle_24" rx="0" ry="0" x="0" y="0" width="379" height="37">
-		</rect>
-	</svg>
-	<svg class="Rectangle_25">
-		<rect id="Rectangle_25" rx="0" ry="0" x="0" y="0" width="379" height="37">
-		</rect>
-	</svg>
-	<svg class="Rectangle_29">
-		<rect id="Rectangle_29" rx="0" ry="0" x="0" y="0" width="379" height="37">
-		</rect>
-	</svg>
-	<svg class="Rectangle_30">
-		<rect id="Rectangle_30" rx="0" ry="0" x="0" y="0" width="379" height="37">
-		</rect>
-	</svg>
+		<div id = "form">
+			<label for="fname">Name of Payee (full name):</label>
+			<input type="text" id="fname" name="fname">
+			<br>
+			<br>
+			<label for="fname">Account Number:</label>
+			<input type="text" id="fname" name="fname">
+			<br>
+			<br>
+			<label for="fname">Sort Code:</label>
+			<input type="text" id="fname" name="fname">
+			<br>
+			<br>
+			<label for="fname">Amount:</label>
+			<input type="text" id="fname" name="fname">
+			<br>
+			<br>
+			<label for="fname">Frequency:</label>
+			<input type="text" id="fname" name="fname">
+			<br>
+			<br>
+			<label for="fname">Start Date:</label>
+			<input type="text" id="fname" name="fname">
+		</div>
 	</div>
 	<div onclick="application.goToTargetView(event)" id="Component_6__7" class="Component_6___7">
 		<svg class="Rectangle_20">
