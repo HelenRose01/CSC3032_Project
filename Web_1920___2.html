@@ -1256,10 +1256,10 @@
 		height: 41px;
 		left: 33px;
 		top: 156px;
-		cursor: pointer;
 		--web-animation: fadein 0.30000001192092896s ease-out;
 		--web-action-type: page;
 		--web-action-target: Artboard___1.html;
+		cursor: pointer;
 	}
 	#Payments {
 		left: 54px;
@@ -1274,6 +1274,10 @@
 		font-weight: normal;
 		font-size: 19px;
 		color: rgba(0,0,0,1);
+		--web-animation: fadein 0.30000001192092896s ease-out;
+		--web-action-type: page;
+		--web-action-target: Artboard___1.html;
+		cursor: pointer;
 	}
 	#Path_7 {
 		fill: rgba(255,255,255,1);
@@ -1502,6 +1506,165 @@
 		font-style: normal;
 		font-weight: normal;
 		font-size: 20px;
+	}
+	#Rectangle_21 {
+		fill: rgba(255,255,255,1);
+		stroke: rgba(112,112,112,1);
+		stroke-width: 1px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+		display: none;
+	}
+	.Rectangle_21 {
+		position: absolute;
+		overflow: visible;
+		width: 678px;
+		height: 381px;
+		left: 215px;
+		top: 141px;
+		display: none;
+	}
+	#Make_a_payment {
+		left: 475px;
+		top: 155px;
+		position: absolute;
+		overflow: visible;
+		width: 150px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Roboto;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 20px;
+		color: rgba(0,0,0,1);
+		display: none;
+	}
+	#Name_of_payee_full_name__Accou {
+		left: 242px;
+		top: 201px;
+		position: absolute;
+		overflow: visible;
+		width: 242px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Roboto;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 20px;
+		color: rgba(0,0,0,1);
+		display: none;
+	}
+	#Ellipse_1 {
+		fill: rgba(255,255,255,1);
+		stroke: rgba(112,112,112,1);
+		stroke-width: 1px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+		display: none;
+	}
+	.Ellipse_1 {
+		position: absolute;
+		overflow: visible;
+		width: 207px;
+		height: 51px;
+		left: 455px;
+		top: 459px;
+		display: none;
+	}
+	#Pay {
+		left: 537px;
+		top: 472px;
+		position: absolute;
+		overflow: visible;
+		width: 35px;
+		white-space: nowrap;
+		text-align: center;
+		font-family: Roboto;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 20px;
+		color: rgba(0,0,0,1);
+		display: none;
+	}
+	#Rectangle_22 {
+		fill: rgba(255,255,255,1);
+		stroke: rgba(112,112,112,1);
+		stroke-width: 1px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+		display: none;
+	}
+	.Rectangle_22 {
+		position: absolute;
+		overflow: visible;
+		width: 379px;
+		height: 37px;
+		left: 483px;
+		top: 192px;
+		display: none;
+	}
+	#Rectangle_23 {
+		fill: rgba(255,255,255,1);
+		stroke: rgba(112,112,112,1);
+		stroke-width: 1px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+		display: none;
+	}
+	.Rectangle_23 {
+		position: absolute;
+		overflow: visible;
+		width: 379px;
+		height: 37px;
+		left: 411px;
+		top: 256px;
+		display: none;
+	}
+	#Rectangle_24 {
+		fill: rgba(255,255,255,1);
+		stroke: rgba(112,112,112,1);
+		stroke-width: 1px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+		display: none;
+	}
+	.Rectangle_24 {
+		position: absolute;
+		overflow: visible;
+		width: 379px;
+		height: 37px;
+		left: 346px;
+		top: 301px;
+		display: none;
+	}
+	#Rectangle_25 {
+		fill: rgba(255,255,255,1);
+		stroke: rgba(112,112,112,1);
+		stroke-width: 1px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+		display: none;
+	}
+	.Rectangle_25 {
+		position: absolute;
+		overflow: visible;
+		width: 379px;
+		height: 37px;
+		left: 332px;
+		top: 346px;
+		display: none;
 	}
 </style>
 <script id="applicationScript">
@@ -4700,7 +4863,7 @@ window.application = new Application();
 			</div>
 		</div>
 		<svg class="Rectangle_15">
-			<rect onclick="application.showOverlay(event,'Artboard__1',418,372)" id="Rectangle_15" rx="0" ry="0" x="0" y="0" width="125" height="41">
+			<rect onclick="application.goToTargetView(event)" id="Rectangle_15" rx="0" ry="0" x="0" y="0" width="125" height="41">
 			</rect>
 		</svg>
 		<div id="Payments">
