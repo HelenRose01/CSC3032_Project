@@ -68,10 +68,6 @@
 		left: 462px;
 		top: 391px;
 		overflow: visible;
-		cursor: pointer;
-		--web-animation: fadein 0.30000001192092896s ease-out;
-		--web-action-type: page;
-		--web-action-target: Artboard___10.html;
 	}
 	#Rectangle_13 {
 		fill: rgba(255,255,255,1);
@@ -118,11 +114,11 @@
 		overflow: visible;
 		width: 678px;
 		height: 415px;
-		left: 215px;
-		top: 141px;
+		left: 150px;
+		top: 120px;
 	}
 	#Make_a_transfer {
-		left: 475px;
+		left: 415px;
 		top: 155px;
 		position: absolute;
 		overflow: visible;
@@ -136,7 +132,7 @@
 		color: rgba(0,0,0,1);
 	}
 	#form {
-		left: 237px;
+		left: 195px;
 		top: 181px;
 		 position: absolute;
 		 overflow: visible;
@@ -148,52 +144,6 @@
 		 font-size: 20px;
 		 color: rgba(0, 0, 0, 1);
 	 }
-
-	#Amount {
-		left: 237px;
-		top: 181px;
-		position: absolute;
-		overflow: visible;
-		width: 76px;
-		white-space: nowrap;
-		text-align: left;
-		font-family: Roboto;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 20px;
-		color: rgba(0,0,0,1);
-	}
-	#Rectangle_31 {
-		fill: rgba(255,255,255,1);
-		stroke: rgba(112,112,112,1);
-		stroke-width: 1px;
-		stroke-linejoin: miter;
-		stroke-linecap: butt;
-		stroke-miterlimit: 4;
-		shape-rendering: auto;
-	}
-	.Rectangle_31 {
-		position: absolute;
-		overflow: visible;
-		width: 324px;
-		height: 39px;
-		left: 346px;
-		top: 242px;
-	}
-	#Text {
-		left: 363px;
-		top: 248px;
-		position: absolute;
-		overflow: visible;
-		width: 13px;
-		white-space: nowrap;
-		text-align: left;
-		font-family: Roboto;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 20px;
-		color: rgba(0,0,0,1);
-	}
 	#Ellipse_2 {
 		fill: rgba(255,255,255,1);
 		stroke: rgba(112,112,112,1);
@@ -208,12 +158,16 @@
 		overflow: visible;
 		width: 232px;
 		height: 64px;
-		left: 455px;
-		top: 484px;
+		left: 400px;
+		top: 464px;
+		cursor: pointer;
+		--web-animation: fadein 0.30000001192092896s ease-out;
+		--web-action-type: page;
+		--web-action-target: Artboard___10.html;
 	}
 	#Confirm {
-		left: 535px;
-		top: 503px;
+		left: 480px;
+		top: 480px;
 		position: absolute;
 		overflow: visible;
 		width: 72px;
@@ -3208,7 +3162,7 @@ window.application = new Application();
 	<div id="Transfer_money_1_Press_standin">
 		<span>Transfer money</span><br/><span style="font-style:normal;font-weight:normal;">1) Press Transfer<br/>2) Select account and amount</span><span></span><br/><span style="font-style:normal;font-weight:normal;">3) Click confirm</span><span></span><br/>
 	</div>
-	<div onclick="application.goToTargetView(event)" id="Banking" class="Banking">
+	<div id="Banking" class="Banking">
 		<svg class="Rectangle_13">
 			<rect id="Rectangle_13" rx="0" ry="0" x="0" y="0" width="972" height="552">
 			</rect>
@@ -3223,7 +3177,7 @@ window.application = new Application();
 	<div id="Make_a_transfer">
 		<span>Make a transfer</span>
 	</div>
-	<svg class="Ellipse_2">
+	<svg class="Ellipse_2" onclick="application.goToTargetView(event)">
 		<ellipse id="Ellipse_2" rx="116" ry="32" cx="116" cy="32">
 		</ellipse>
 	</svg>
