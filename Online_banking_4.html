@@ -93,7 +93,7 @@
 		width: 463px;
 		white-space: nowrap;
 		text-align: center;
-		font-family: Roboto;
+		font-family: Agency FB;
 		font-style: normal;
 		font-weight: normal;
 		font-size: 50px;
@@ -1266,7 +1266,7 @@
 		width: 85px;
 		white-space: nowrap;
 		text-align: left;
-		font-family: Roboto;
+		font-family: Agency FB;
 		font-style: normal;
 		font-weight: normal;
 		font-size: 19px;
@@ -1302,7 +1302,7 @@
 		width: 98px;
 		white-space: nowrap;
 		text-align: left;
-		font-family: Roboto;
+		font-family: Agency FB;
 		font-style: normal;
 		font-weight: normal;
 		font-size: 19px;
@@ -1333,7 +1333,7 @@
 		width: 109px;
 		white-space: nowrap;
 		text-align: left;
-		font-family: Roboto;
+		font-family: Agency FB;
 		font-style: normal;
 		font-weight: normal;
 		font-size: 19px;
@@ -1364,7 +1364,7 @@
 		width: 135px;
 		white-space: nowrap;
 		text-align: left;
-		font-family: Roboto;
+		font-family: Agency FB;
 		font-style: normal;
 		font-weight: normal;
 		font-size: 19px;
@@ -1395,7 +1395,7 @@
 		width: 81px;
 		white-space: nowrap;
 		text-align: left;
-		font-family: Roboto;
+		font-family: Agency FB;
 		font-style: normal;
 		font-weight: normal;
 		font-size: 19px;
@@ -1476,7 +1476,7 @@
 		width: 82px;
 		white-space: nowrap;
 		text-align: left;
-		font-family: Roboto;
+		font-family: Agency FB;
 		font-style: normal;
 		font-weight: normal;
 		font-size: 30px;
@@ -1499,7 +1499,7 @@
 		z-index: 1;
 		width: 100%;
 		background-color: #f1f1f1;
-		font-family: Roboto;
+		font-family: Agency FB;
 		font-style: normal;
 		font-weight: normal;
 		font-size: 20px;
@@ -1718,11 +1718,11 @@ var Application = function() {
 
 					self.refreshRequest.onload = self.refreshOnLoadOnceHandler;
 
-					// In some browsers (Chrome & Safari) this error occurs at send: 
+					// In some browsers (Chrome & Safari) this error occurs at send:
 					// 
 					// Chrome - Access to XMLHttpRequest at 'file:///index.html' from origin 'null' 
 					// has been blocked by CORS policy: 
-					// Cross origin requests are only supported for protocol schemes: 
+					// Cross origin requests are only supported for protocol schemes:
 					// http, data, chrome, chrome-extension, https.
 					// 
 					// Safari - XMLHttpRequest cannot load file:///Users/user/Public/index.html. Cross origin requests are only supported for HTTP.
@@ -3158,8 +3158,8 @@ var Application = function() {
 	 * Returns true if view can be centered horizontally
 	 * @param {HTMLElement} view view
 	 * @param {String} type type of scaling - width, height, all, none
-	 * @param {Boolean} scaleUp if scale up enabled 
-	 * @param {Number} scale target scale value 
+	 * @param {Boolean} scaleUp if scale up enabled
+	 * @param {Number} scale target scale value
 	 */
 	self.canCenterHorizontally = function(view, type, scaleUp, scale, minimumScale, maximumScale) {
 		var scaleNeededToFit = self.getViewFitToViewportScale(view, scaleUp);
@@ -3223,8 +3223,8 @@ var Application = function() {
 	 * Returns true if view can be centered horizontally
 	 * @param {HTMLElement} view view to scale
 	 * @param {String} type type of scaling
-	 * @param {Boolean} scaleUp if scale up enabled 
-	 * @param {Number} scale target scale value 
+	 * @param {Boolean} scaleUp if scale up enabled
+	 * @param {Number} scale target scale value
 	 */
 	self.canCenterVertically = function(view, type, scaleUp, scale, minimumScale, maximumScale) {
 		var scaleNeededToFit = self.getViewFitToViewportScale(view, scaleUp);
@@ -3468,7 +3468,7 @@ var Application = function() {
 			for (let index = 0; index < views.length; index++) {
 				var viewId = views[index];
 				var state = self.viewsDictionary[viewId];
-				var rule = state && state.rule; 
+				var rule = state && state.rule;
 				var matchResults = window.matchMedia(rule.conditionText);
 				var view = self.views[viewId];
 				
@@ -3650,7 +3650,7 @@ var Application = function() {
 	/**
 	 * Get the first defined value of property. Returns empty string if not defined
 	 * @param {String} id id of element
-	 * @param {String} property 
+	 * @param {String} property
 	 */
 	self.getCSSPropertyValueForElement = function(id, property) {
 		var styleSheets = document.styleSheets;
@@ -3952,7 +3952,7 @@ var Application = function() {
 			var duration = self.getAnimationDuration(animation, true);
 
 			// if target view is above (higher index)
-			// then fade in target view 
+			// then fade in target view
 			// and after fade in then hide previous view instantly
 			if (fromIndex<toIndex) {
 				self.setElementAnimation(from, null);
@@ -3970,7 +3970,7 @@ var Application = function() {
 				}, duration)
 			}
 			// if target view is on bottom
-			// then show target view instantly 
+			// then show target view instantly
 			// and fade out current view
 			else if (fromIndex>toIndex) {
 				self.setElementAnimation(to, null);
@@ -4162,7 +4162,7 @@ var Application = function() {
 		// if showStateFunction is defined that is called with state fragment and user can show or hide each media matching view by returning true or false
 		// if showStateFunction is not defined and state is defined and view has a defined state that matches then show that and hide other matching views
 		// if no state is defined show view 
-		// an viewChanging event is dispatched before views are shown or hidden that can be prevented 
+		// an viewChanging event is dispatched before views are shown or hidden that can be prevented
 
 		// get all matched queries
 		// if state name is specified then show that view and hide other views
