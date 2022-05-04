@@ -40,10 +40,6 @@
 		width: 1920px;
 		height: 1080px;
 		overflow: hidden;
-		--web-animation: fadein 0.30000001192092896s ease-out;
-		--web-action-type: page;
-		--web-action-target: Online_banking_4.html;
-		cursor: pointer;
 		--web-view-name: Online Banking 4 2;
 		--web-view-id: Online_banking_4_2;
 		--web-scale-on-resize: true;
@@ -72,6 +68,10 @@
 		left: 462px;
 		top: 391px;
 		overflow: visible;
+		--web-animation: fadein 0.30000001192092896s ease-out;
+		--web-action-type: page;
+		--web-action-target: Online_banking_4.html;
+		cursor: pointer;
 	}
 	#Rectangle_13 {
 		fill: rgba(255,255,255,1);
@@ -4924,11 +4924,11 @@ window.application = new Application();
 		<div class="progress-bar" id="myBar"></div>
 	</div>
 </div>
-<div id="Online_banking_4_2" onclick="application.goToTargetView(event)">
+<div id="Online_banking_4_2" >
 	<div id="See_recent_statements_1_Click_">
 		<span>See recent statements</span><br/><span style="font-style:normal;font-weight:normal;">1) Click on statements<br/>2) Select statement want to look at</span>
 	</div>
-	<div id="Banking" class="Banking">
+	<div id="Banking" class="Banking" onclick="application.goToTargetView(event)">
 		<svg class="Rectangle_13">
 			<rect id="Rectangle_13" rx="0" ry="0" x="0" y="0" width="972" height="552">
 			</rect>
